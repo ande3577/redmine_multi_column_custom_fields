@@ -1,3 +1,4 @@
+
 Redmine::Plugin.register :redmine_multi_column_custom_fields do
   
   requires_redmine :version_or_higher => '2.0.0'
