@@ -5,7 +5,7 @@ require 'redmine_multi_column_custom_fields/issues_helper_patch'
 
 Redmine::Plugin.register :redmine_multi_column_custom_fields do
   
-  requires_redmine :version_or_higher => '2.0.0'
+  requires_redmine :version_or_higher => '2.1.0'
   
   name 'Redmine Multi Column Custom Fields plugin'
   author 'David S Anderson'

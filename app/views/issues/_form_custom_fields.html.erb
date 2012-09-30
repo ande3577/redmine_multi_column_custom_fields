@@ -1,0 +1,23 @@
+<div class="splitcontent">
+<div class="splitcontentleft">
+<% i = 0 %>
+<% index = 0 %>
+<% while i < @issue.custom_field_values.size %>
+	<% @issue.editable_custom_field_values.each do |value| %>
+		<% split_on = ((next_multi_column_index(@issue, i) - index) / 2.0).ceil + index - 1 %>
+	  <% if value.custom_field.multi_column %>
+	  	</div></div><div class="span">
+	  	<p><%= custom_field_tag_with_label :issue, value, :required => @issue.required_attribute?(value.custom_field_id) %></p>
+	  	<% index = i + 1 %>
+		</div><div class="splitcontent"><div class="splitcontentleft">
+	  <% else %>
+	  	<p><%= custom_field_tag_with_label :issue, value, :required => @issue.required_attribute?(value.custom_field_id) %></p>
+	  	<% if i == split_on -%>
+				</div><div class="splitcontentright">
+			<% end -%>
+	  <% end %>
+		<% i += 1 -%>
+	<% end -%>
+<% end %>
+</div>
+</div>
