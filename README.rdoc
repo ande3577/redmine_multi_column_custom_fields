@@ -1,3 +1,18 @@
-= redmine_multi_column_custom_fields
+# Redmine Multi-Column Custom Fields Plugin
 
-Description goes here
+## Overview
+
+Redmine Multi-Column Custom Fields is a plugin that aids in
+formatting an issue containing custom fields by allowing a
+custom field to span the entire row of the fields table.
+
+Tested on Redmine 2.1.0 (trunk as of 9/30/12).
+
+## Installation instructions
+
+1. Install to _plugins/redmine_multi_column_custom_fields_
+2. Run _rake redmine:plugins:migrate
+3. Restart server_
+
+
+
