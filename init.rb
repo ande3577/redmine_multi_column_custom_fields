@@ -9,7 +9,7 @@ Redmine::Plugin.register :redmine_multi_column_custom_fields do
   
   name 'Redmine Multi Column Custom Fields plugin'
   author 'David S Anderson'
-  description 'This is a plugin for Redmine'
+  description 'Allows a custom field to span all column in an issue.'
   version '0.0.1'
   url 'https://github.com/ande3577/redmine_multi_column_custom_fields'
   author_url 'https://github.com/ande3577/'
