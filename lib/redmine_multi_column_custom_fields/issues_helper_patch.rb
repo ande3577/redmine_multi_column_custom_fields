@@ -39,7 +39,7 @@ module RedmineMultiColumnIssuesHelperRatch
             s << "</tr></table>\n"
             s << "<hr />\n"
             s << "<div class=\"wiki\">\n"
-            s << "<h3>#{ h(value.custom_field.name) }</h3><p>#{ simple_format_without_paragraph(h(show_value(value))) }</p>\n"
+            s << "<strong>#{ h(value.custom_field.name) }</strong><p>#{ simple_format_without_paragraph(h(show_value(value))) }</p>\n"
             s << "</div>\n"
             s << "<table class=\"attributes\">"
             n = 0
