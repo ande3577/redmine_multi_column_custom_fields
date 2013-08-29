@@ -1,4 +1,4 @@
-module RedmineMultiColumnIssuesHelperRatch
+module RedmineMultiColumnIssuesHelperPatch
   module IssuesHelperPatch
     unloadable
     
@@ -68,4 +68,4 @@ module RedmineMultiColumnIssuesHelperRatch
   end
 end
 
-IssuesHelper.send(:include, RedmineMultiColumnIssuesHelperRatch::IssuesHelperPatch)
+IssuesHelper.send(:include, RedmineMultiColumnIssuesHelperPatch::IssuesHelperPatch)
