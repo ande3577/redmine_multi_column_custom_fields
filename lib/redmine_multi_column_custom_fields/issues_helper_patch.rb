@@ -15,7 +15,7 @@ module RedmineMultiColumnIssuesHelperPatch
         ordered_values = []
         
         index = 0
-        next_multi_column = next_multi_column_index(issue, index)
+        next_multi_column = next_multi_column_index(issue, index, issue.custom_field_values)
         while ordered_values.size < issue.custom_field_values.size do
           half = ((next_multi_column - index) / 2.0).ceil
           half.times do |i|
@@ -25,9 +25,9 @@ module RedmineMultiColumnIssuesHelperPatch
           index = next_multi_column
           if index < issue.custom_field_values.size
             ordered_values << issue.custom_field_values[index]
-            next_multi_column = next_multi_column_index(issue, index + 1)
+            next_multi_column = next_multi_column_index(issue, index + 1, issue.custom_field_values)
             index += 1
-            next_multi_column = next_multi_column_index(issue, index)
+            next_multi_column = next_multi_column_index(issue, index, issue.custom_field_values)
           end
         end  
         
@@ -55,9 +55,9 @@ module RedmineMultiColumnIssuesHelperPatch
         s.html_safe
       end
       
-      def next_multi_column_index(issue, index)
+      def next_multi_column_index(issue, index, custom_field_values)
         next_index = index
-        while ((next_index < issue.custom_field_values.size) && !issue.custom_field_values[next_index].custom_field.multi_column?) do
+        while ((next_index < custom_field_values.size) && !custom_field_values[next_index].custom_field.multi_column?) do
           next_index += 1
         end
         return next_index
