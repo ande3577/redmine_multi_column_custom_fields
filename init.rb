@@ -1,7 +1,6 @@
 require 'redmine'
 require 'redmine_multi_column_custom_fields/hooks'
 require 'redmine_multi_column_custom_fields/issues_helper_patch'
-require 'redmine_multi_column_custom_fields/custom_fields_helper_patch'
 
 
 Redmine::Plugin.register :redmine_multi_column_custom_fields do
