@@ -16,7 +16,12 @@ branch.
 ## Installation instructions
 
 1. Install to _plugins/redmine_multi_column_custom_fields_
-2. Run _rake redmine:plugins:migrate_
+2. Run 
+ 
+```
+rake redmine:plugins:migrate RAILS_ENV=production
+```
+
 3. Restart server
 
 
