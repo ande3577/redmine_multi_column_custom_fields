@@ -15,7 +15,7 @@ branch.
 
 ## Installation instructions
 
-1. Install to _plugins/redmine_multi_column_custom_fields_
+1. Install to plugins/redmine_multi_column_custom_fields
 2. Run 
  
 ```
