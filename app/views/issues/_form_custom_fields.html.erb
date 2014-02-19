@@ -1,3 +1,7 @@
+<% content_for :header_tags do %>
+     <%= stylesheet_link_tag 'multi_column_custom_fields', :plugin => 'redmine_multi_column_custom_fields' %>
+<% end %>
+
 <div class="splitcontent">
 <div class="splitcontentleft">
 <% i = 0 %>
@@ -5,11 +9,11 @@
 <% split_on = (next_multi_column / 2.0).ceil - 1 %>
 <% @issue.editable_custom_field_values.each do |value| %>
   <% if value.custom_field.multi_column %>
-    </div>
+    </div><div class="multicolumnform">
   <% end %>
   <p><%= custom_field_tag_with_label :issue, value, :required => @issue.required_attribute?(value.custom_field_id) %>
   <% if value.custom_field.multi_column? %>
-    <div class="splitcontentleft">
+    </div><div class="splitcontentleft">
     <% next_multi_column = next_multi_column_index(:issue, i + 1, @issue.editable_custom_field_values) %>
     <% split_on = ((next_multi_column + i) / 2.0).ceil - 1 %>
   <% elsif i == split_on -%>
