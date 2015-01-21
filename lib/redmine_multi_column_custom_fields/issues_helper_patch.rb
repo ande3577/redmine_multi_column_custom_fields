@@ -11,23 +11,24 @@ module RedmineMultiColumnIssuesHelperPatch
     
     module InstanceMethods
       def render_custom_fields_rows_with_multi_column(issue)
-        return if issue.custom_field_values.empty?
+        values = issue.visible_custom_field_values(User.current)
+        return if values.empty?
         ordered_values = []
         
         index = 0
-        next_multi_column = next_multi_column_index(issue, index, issue.custom_field_values)
-        while ordered_values.size < issue.custom_field_values.size do
+        next_multi_column = next_multi_column_index(issue, index, values)
+        while ordered_values.size < values.size do
           half = ((next_multi_column - index) / 2.0).ceil
           half.times do |i|
-            ordered_values << issue.custom_field_values[index + i]
-            ordered_values << issue.custom_field_values[index + i + half] unless index + i + half >= next_multi_column
+            ordered_values << values[index + i]
+            ordered_values << values[index + i + half] unless index + i + half >= next_multi_column
           end
           index = next_multi_column
-          if index < issue.custom_field_values.size
-            ordered_values << issue.custom_field_values[index]
-            next_multi_column = next_multi_column_index(issue, index + 1, issue.custom_field_values)
+          if index < values.size
+            ordered_values << values[index]
+            next_multi_column = next_multi_column_index(issue, index + 1, values)
             index += 1
-            next_multi_column = next_multi_column_index(issue, index, issue.custom_field_values)
+            next_multi_column = next_multi_column_index(issue, index, values)
           end
         end  
         
