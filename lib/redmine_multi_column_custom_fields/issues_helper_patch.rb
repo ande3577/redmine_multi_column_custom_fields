@@ -37,12 +37,12 @@ module RedmineMultiColumnIssuesHelperPatch
         last_multi_column = false
         ordered_values.compact.each do |value|
           if value.custom_field.multi_column?
-            s << "</tr></table>\n"
+            s << "</tr><tr>\n"
+            s << "<td colspan='0'><div class='wiki'>\n"
             s << "<hr />\n"
-            s << "<div class=\"wiki\">\n"
-            s << "<strong>#{ h(value.custom_field.name) }</strong><p>#{ simple_format_without_paragraph(h(show_value(value))) }</p>\n"
-            s << "</div>\n"
-            s << "<table class=\"attributes\">"
+            s << "<p><strong>#{ h(value.custom_field.name) }</strong></p><br />\n"
+            s << "<p>#{ simple_format_without_paragraph(h(show_value(value))) }</p>\n"
+            s << "</div></td></tr>"
             n = 0
           else
             s << "<hr />\n" if last_multi_column
