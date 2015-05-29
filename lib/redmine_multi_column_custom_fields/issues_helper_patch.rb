@@ -38,7 +38,7 @@ module RedmineMultiColumnIssuesHelperPatch
         ordered_values.compact.each do |value|
           if value.custom_field.multi_column?
             s << "</tr><tr>\n"
-            s << "<td colspan='0'><div class='wiki'>\n"
+            s << "<td colspan='4'><div class='wiki'>\n"
             s << "<hr />\n"
             s << "<p><strong>#{ h(value.custom_field.name) }</strong></p><br />\n"
             s << "<p>#{ simple_format_without_paragraph(h(show_value(value))) }</p>\n"
