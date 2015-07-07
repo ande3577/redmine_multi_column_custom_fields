@@ -1,3 +1,3 @@
 div.multicolumnform { width: 100% }
 div.multicolumnform textarea { width: 99% }
-div.multicolumnform input { width: 99% }
+div.multicolumnform input:not([type=checkbox]) { width: 99% }
