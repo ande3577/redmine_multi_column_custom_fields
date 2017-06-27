@@ -34,8 +34,8 @@ module RedmineMultiColumnIssuesHelperPatch
             n = 0
           else
             s << "<hr />\n" if last_multi_column
-            l << "<div class=\"status attribute\"><div class=\"label\">"+h(value.custom_field.name)+"</div><div class=\"value\">"+show_value(value)+"</div></div>" if n % 2  == 0
-            r << "<div class=\"status attribute\"><div class=\"label\">"+h(value.custom_field.name)+"</div><div class=\"value\">"+h(show_value(value))+"</div></div>" if n % 2  > 0 
+            l << "<div class=\"cf_" + h(value.custom_field_id) + " attribute\"><div class=\"label\">"+h(value.custom_field.name)+"</div><div class=\"value\">"+h(show_value(value))+"</div></div>" if n % 2  == 0
+            r << "<div class=\"cf_" + h(value.custom_field_id) + " attribute\"><div class=\"label\">"+h(value.custom_field.name)+"</div><div class=\"value\">"+h(show_value(value))+"</div></div>" if n % 2  > 0 
             n += 1
           end
           last_multi_column = value.custom_field.multi_column?
